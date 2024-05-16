@@ -66,6 +66,11 @@ def adjust_timestamps_in_record(record: Dict, schema: Dict) -> None:
                         reset_new_value(record, key, type_dict['format'])
                         break
             else:
+                LOGGER.info('!!!!!')
+                LOGGER.info(key)
+                LOGGER.info(value)
+                LOGGER.info(schema)
+                LOGGER.info('!!!!!')
                 if 'string' in schema['properties'][key]['type'] and \
                         schema['properties'][key].get('format', None) in {'date-time', 'time', 'date'}:
                     reset_new_value(record, key, schema['properties'][key]['format'])
